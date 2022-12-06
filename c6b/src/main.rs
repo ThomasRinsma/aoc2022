@@ -3,15 +3,17 @@ use itertools::Itertools;
 fn main() {
     let input = include_str!("in.txt");
 
+    let win_size = 14;
+
     let result = input
         .chars()
-        .enumerate()
         .collect::<Vec<_>>()
-        .windows(14)
-        .filter(|w| w.iter().map(|(_, c)| c).all_unique())
-        .map(|w| w.last().unwrap().0)
+        .windows(win_size)
+        .enumerate()
+        .filter(|(_, w)| w.iter().all_unique())
+        .map(|(i, _)| i + win_size)
         .next()
-        .unwrap() + 1;
+        .unwrap();
     
 
     println!("result = {}", result);
