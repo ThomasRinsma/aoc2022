@@ -28,9 +28,8 @@ fn main() {
                 .map(|range: &Vec<char>| {
                     let mut score = 0;
                     for other in range.iter() {
-                        score += (*other < tree) as u32;
+                        score += 1;
                         if *other >= tree {
-                            score += 1;
                             break;
                         }
                     }
