@@ -18,14 +18,14 @@ fn main() {
         for x in 1..width-1 {
             let tree = grid[y * width + x];
 
-			// Line to either of the four cardinal directions should be clear
+            // Line to either of the four cardinal directions should be clear
             if (0..x).map(|i| grid[y * width + i]).all(|t| t < tree)
             || (x+1..width).map(|i| grid[y * width + i]).all(|t| t < tree)
             || (0..y).map(|i| grid[i * width + x]).all(|t| t < tree)
             || (y+1..height).map(|i| grid[i * width + x]).all(|t| t < tree)
-			{
-				visible_count += 1;
-			}
+            {
+                visible_count += 1;
+            }
         }
     }
 
